@@ -123,13 +123,12 @@ def plot_confusion_matrix(model, dataloader):
     plt.ylabel('True Labels')
     plt.show()    
 
-if __name__ == "__main__":
-    train_dataset, test_dataset = load_data()
-    train_loader = DataLoader(train_dataset, batch_size=32, shuffle=True)
-    test_loader = DataLoader(test_dataset, batch_size=32, shuffle=False)
+train_dataset, test_dataset = load_data()
+train_loader = DataLoader(train_dataset, batch_size=32, shuffle=True)
+test_loader = DataLoader(test_dataset, batch_size=32, shuffle=False)
 
-    model = TinyVGG().to(device)
-    visualize_samples(train_dataset)
-    train_model(model, train_loader, test_loader, epochs=5)
-    visualize_predictions(model, test_loader)
-    plot_confusion_matrix(model, test_loader)
+model = TinyVGG().to(device)
+visualize_samples(train_dataset)
+train_model(model, train_loader, test_loader, epochs=5)
+visualize_predictions(model, test_loader)
+plot_confusion_matrix(model, test_loader)
